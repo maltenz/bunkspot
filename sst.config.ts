@@ -7,14 +7,14 @@ export default $config({
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
       home: "aws", // Hard target AWS for state tracking
+      // 💡 FIXED: Providers must be declared here so SST can install them & generate types
+      providers: {
+        aws: "7.20.0",
+        cloudflare: "6.15.0"
+      },
     };
   },
   async run() {
-    const providers = {
-      aws: true,
-      cloudflare: true,
-    };
-
     const mainTable = new sst.aws.Dynamo("BunkSpot_Master", {
       fields: {
         PK: "string",

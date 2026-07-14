@@ -77,6 +77,7 @@ To launch the local hot-reloading development loop, execute the orchestrator scr
 
 ```bash
 npx sst dev
+// http://localhost:3000
 ```
 
 This sequence triggers the following real-time workflow operations:

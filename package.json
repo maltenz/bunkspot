@@ -1,0 +1,13 @@
+{
+  "name": "bunkspot",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "sst": "^4.17.1"
+  }
+}
