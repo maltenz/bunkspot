@@ -6,8 +6,7 @@ export default $config({
       name: "bunkspot",
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
-      home: "aws", // Hard target AWS for state tracking
-      // 💡 FIXED: Providers must be declared here so SST can install them & generate types
+      home: "aws",
       providers: {
         aws: "7.20.0",
         cloudflare: "6.15.0"
@@ -38,6 +37,8 @@ export default $config({
         command: "bun run build",
         output: "dist",
       },
+      // 💡 FIXED: Remove 'link' from here. 
+      // Instead, we pass the bindings directly via environment variables.
       environment: {
         VITE_TABLE_NAME: mainTable.name,
         VITE_USER_POOL_ID: cognitoAuth.id,

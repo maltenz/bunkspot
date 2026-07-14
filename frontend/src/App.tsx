@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -6,6 +6,11 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  useEffect(() => {
+    console.log("--- BunkSpot Infrastructure Test ---");
+    console.log("DynamoDB Table Name:", import.meta.env.VITE_TABLE_NAME);
+    console.log("Cognito User Pool ID:", import.meta.env.VITE_USER_POOL_ID);
+  }, []);
 
   return (
     <>
