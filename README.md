@@ -50,3 +50,47 @@ Create an isolated environment configuration file in the project root directory:
 
 ```bash
 touch .env
+```
+
+Add the following values to `.env`:
+
+```env
+# Cloudflare Infrastructure Routing Keys
+CLOUDFLARE_API_TOKEN="your_cloudflare_workers_edit_token"
+CLOUDFLARE_DEFAULT_ACCOUNT_ID="your_cloudflare_account_hash_id"
+
+# Local AWS Access Profile Definition
+AWS_PROFILE="default"
+```
+
+### Dependency Installation
+
+Initialize the workspace dependencies from the root monorepo tracking file using Bun:
+
+```bash
+bun install
+```
+
+### Local Development Workflow
+
+To launch the local hot-reloading development loop, execute the orchestrator script:
+
+```bash
+npx sst dev
+```
+
+This sequence triggers the following real-time workflow operations:
+
+* Evaluates your architecture mappings defined within `sst.config.ts`.
+* Establishes the safe remote deployment state tracking bucket on AWS.
+* Provisions local live framework links for `BunkSpot_Master` and your Cognito endpoints.
+* Generates real-time static environment injection parameters inside the local Vite project directory (`/frontend`).
+* Hands you an interactive dashboard URL to test and build against.
+
+### Production Build & Deploy
+
+To compile, optimize, and deploy your entire infrastructure stack onto global Cloudflare edge distribution channels and AWS data centers simultaneously:
+
+```bash
+npx sst deploy --stage production
+```
