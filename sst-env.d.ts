@@ -10,6 +10,10 @@ declare module "sst" {
       "id": string
       "type": "sst.aws.CognitoUserPool"
     }
+    "BunkSpot_Campaign": {
+      "type": "sst.cloudflare.StaticSite"
+      "url": string
+    }
     "BunkSpot_Master": {
       "name": string
       "type": "sst.aws.Dynamo"

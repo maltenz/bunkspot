@@ -62,9 +62,15 @@ export default $config({
       },
     });
 
-    // 4. Console Outputs
+    // 4. Campaign site deployed as a plain static site on Cloudflare
+    const campaignSite = new sst.cloudflare.StaticSite("BunkSpot_Campaign", {
+      path: "website",
+    });
+
+    // 5. Console Outputs
     return {
       FrontendUrl: webApp.url,
+      CampaignSiteUrl: campaignSite.url,
       DatabaseTable: mainTable.name,
       UserPoolId: cognitoAuth.id,
       UserPoolClientId: cognitoClient.id,
