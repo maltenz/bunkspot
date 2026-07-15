@@ -18,6 +18,11 @@ declare module "sst" {
       "type": "sst.cloudflare.StaticSite"
       "url": string
     }
+    "WebClient": {
+      "id": string
+      "secret": string
+      "type": "sst.aws.CognitoUserPoolClient"
+    }
   }
 }
 
